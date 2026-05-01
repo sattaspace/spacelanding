@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/* ===== Deadman Brand Font (SattaSpace logo only) ===== */
+@font-face {
+  font-family: 'Deadman';
+  src: url('/fonts/deadman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== SattaSpace Brand Design Tokens ===== */
+@theme {
+  --color-cosmic-navy: #0A1F44;
+  --color-deep-space: #050E1F;
+  --color-midnight-blue: #0D2B5E;
+  --color-quantum-cyan: #00B4E6;
+  --color-electric-blue: #33C9F0;
+  --color-nebula-gray: #6C7A89;
+  --color-stellar-white: #F0F4F8;
+  --color-cosmic-dust: #E2E8F0;
+  --color-warm-entity: #FF6B35;
+  --color-amber-glow: #F59E0B;
+  --color-emerald-venture: #10B981;
+  --color-violet-media: #8B5CF6;
+  --color-rose-energy: #F43F5E;
+
+  --font-display: 'Montserrat', 'Liberation Sans', system-ui, sans-serif;
+  --font-body: 'Open Sans', 'Liberation Sans', system-ui, sans-serif;
+  --font-mono: 'Fira Code', 'Liberation Mono', monospace;
+  --font-brand: 'Deadman', 'Montserrat', 'Liberation Sans', system-ui, sans-serif;
+}
+
+/* ===== Base ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-deep-space);
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-deep-space); }
+::-webkit-scrollbar-thumb { background: var(--color-midnight-blue); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-quantum-cyan); }
+
+/* ===== Selection ===== */
+::selection {
+  background: rgba(0, 180, 230, 0.3);
+  color: #fff;
+}
+
+/* ===== Orbit Keyframes ===== */
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ===== Utility Animations ===== */
+.animate-orbit { animation: orbit 20s linear infinite; }
+.animate-orbit-reverse { animation: orbit-reverse 25s linear infinite; }
+.animate-orbit-slow { animation: orbit 40s linear infinite; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-fade-up { animation: fade-up 0.8s ease-out forwards; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(0,180,230,0.08) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ===== Glass Morphism ===== */
+.glass {
+  background: rgba(10, 31, 68, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 180, 230, 0.1);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ===== Gradient Text ===== */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, var(--color-quantum-cyan), var(--color-electric-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, var(--color-warm-entity), var(--color-amber-glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Brand Font (Deadman — SattaSpace logo only) ===== */
+.font-brand {
+  font-family: var(--font-brand);
+  letter-spacing: 0.02em;
+}

@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/vue/Navbar.vue';
+import HeroSection from '../components/vue/HeroSection.vue';
+import PhilosophySection from '../components/vue/PhilosophySection.vue';
+import StatsSection from '../components/vue/StatsSection.vue';
+import EcosystemSection from '../components/vue/EcosystemSection.vue';
+import BrandSection from '../components/vue/BrandSection.vue';
+import VisionSection from '../components/vue/VisionSection.vue';
+import FooterSection from '../components/vue/FooterSection.vue';
+import ScrollToTop from '../components/vue/ScrollToTop.vue';
+---
+
+<Layout>
+  <Navbar client:load />
+  <HeroSection client:load />
+  <PhilosophySection client:visible />
+  <div id="stats-section">
+    <StatsSection client:visible />
+  </div>
+  <EcosystemSection client:visible />
+  <BrandSection client:visible />
+  <VisionSection client:visible />
+  <FooterSection client:visible />
+  <ScrollToTop client:load />
+</Layout>
