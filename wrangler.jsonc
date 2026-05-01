@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "spacelanding",
   "compatibility_date": "2026-04-24",
   "compatibility_flags": [
     "global_fetch_strictly_public",
