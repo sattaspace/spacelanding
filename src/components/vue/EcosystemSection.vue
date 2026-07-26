@@ -22,7 +22,7 @@
       <!-- Sub-brand Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         <ScrollReveal v-for="(brand, i) in data.brands" :key="i" :delay="i * 80">
-          <div
+          <a :href=" `${brand.url}` " target="_blank" rel="noopener noreferrer"
             class="group relative glass rounded-2xl p-6 h-full hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden"
             @mouseenter="hoveredBrand = i"
             @mouseleave="hoveredBrand = null"
@@ -87,7 +87,7 @@
                 →
               </div>
             </div>
-          </div>
+          </a>
         </ScrollReveal>
       </div>
 

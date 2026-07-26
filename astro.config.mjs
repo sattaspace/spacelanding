@@ -23,7 +23,9 @@ export default defineConfig({
 
   adapter: cloudflare({
     // This tells Astro to use Sharp at build-time to create optimized assets
-    imageService: 'compile',
+    imageService: { build: 'compile', runtime: 'cloudflare-binding' },
+    sessionKVBindingName: 'SATTADOCS_SESSION_BINDING',
+    prerenderEnvironment: 'node',
   }),
 
   image: {
@@ -75,7 +77,7 @@ export default defineConfig({
           disallow: ['/api/', '/_astro/'],
         },
       ],
-      sitemapBase: `${siteUrl}/sitemap-index.xml`,
+
     }),
   ],
 });
