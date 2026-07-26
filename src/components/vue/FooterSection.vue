@@ -42,8 +42,8 @@
         <div>
           <h4 class="font-display text-xs tracking-[0.2em] uppercase text-white/50 mb-4">Ecosystem</h4>
           <ul class="space-y-2.5">
-            <li v-for="brand in ecosystemBrands" :key="brand">
-              <span class="text-sm text-white/30 hover:text-quantum-cyan transition-colors cursor-default">{{ brand }}</span>
+            <li v-for="brand in ecosystemBrands" :key="brand.name">
+              <a :href="brand.url" target="_blank" rel="noopener noreferrer" class="text-sm text-white/30 hover:text-quantum-cyan transition-colors">{{ brand.name }}</a>
             </li>
           </ul>
         </div>
@@ -82,5 +82,5 @@ const data = footer
 const heading = t(footer.heading)
 const namePrefix = computed(() => siteData.name.slice(0, -4))
 const nameSuffix = computed(() => siteData.name.slice(-4))
-const ecosystemBrands = ecosystem.brands.map((b) => b.name)
+const ecosystemBrands = ecosystem.brands
 </script>
