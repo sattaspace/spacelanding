@@ -269,6 +269,22 @@ export const ecosystem = {
       ],
       url: "https://pen.sattaspace.com/",
     },
+    {
+      name: "Briefcase",
+      shortName: "Briefcase",
+      icon: "BC",
+      color: "#096e72",
+      hex: "#096e72",
+      desc: "Premium briefcase store offering durable and stylish carrying solutions for the modern professional. Each briefcase is meticulously crafted to provide a superior organization experience. All are Briefcases, Durable Carrying Solutions, Stylish Design, and Designed for Professionals and Enthusiasts.",
+      tags: [
+        "Stationery",
+        "Briefcases",
+        "Elegant",
+        "Premium",
+        "Carrying Solutions",
+      ],
+      url: "https://briefcase.sattaspace.com/",
+    },
   ],
 } as const;
 
