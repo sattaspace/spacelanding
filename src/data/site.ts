@@ -273,8 +273,8 @@ export const ecosystem = {
       name: "Briefcase",
       shortName: "Briefcase",
       icon: "BC",
-      color: "#096e72",
-      hex: "#096e72",
+      color: "#1389ce",
+      hex: "#1389ce",
       desc: "Premium briefcase store offering durable and stylish carrying solutions for the modern professional. Each briefcase is meticulously crafted to provide a superior organization experience. All are Briefcases, Durable Carrying Solutions, Stylish Design, and Designed for Professionals and Enthusiasts.",
       tags: [
         "Stationery",
@@ -284,6 +284,16 @@ export const ecosystem = {
         "Carrying Solutions",
       ],
       url: "https://briefcase.sattaspace.com/",
+    },
+    {
+      name: "Blogs",
+      shortName: "Blogs",
+      icon: "BL",
+      color: "#a213ce",
+      hex: "#a213ce",
+      desc: "Blogs and articles on various topics including technology, lifestyle, and personal development. Providing insightful content for readers seeking knowledge and inspiration of SattaSpace Ecosystem. All are Blogs, Articles, Insights, and Designed for Knowledge Seekers and Enthusiasts.",
+      tags: ["Insights", "Articles", "Blogs", "Knowledge", "Enthusiasts"],
+      url: "https://blogs.sattaspace.com/",
     },
   ],
 } as const;
