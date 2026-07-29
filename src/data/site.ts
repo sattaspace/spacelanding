@@ -295,6 +295,16 @@ export const ecosystem = {
       tags: ["Insights", "Articles", "Blogs", "Knowledge", "Enthusiasts"],
       url: "https://blogs.sattaspace.com/",
     },
+    {
+      name: "Tools",
+      shortName: "Tools",
+      icon: "TL",
+      color: "#a213ce",
+      hex: "#a213ce",
+      desc: "A collection of useful tools and resources for developers and professionals. Providing efficient solutions for common tasks and challenges within the SattaSpace Ecosystem. All are Tools, Resources, Efficiency, and Designed for Developers and Professionals.",
+      tags: ["Tools", "Resources", "Efficiency", "Developers", "Professionals"],
+      url: "https://tools.sattaspace.com/",
+    },
   ],
 } as const;
 
