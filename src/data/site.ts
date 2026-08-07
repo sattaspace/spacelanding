@@ -322,6 +322,16 @@ export const ecosystem = {
       ],
       url: "https://tokenops.sattaspace.com/",
     },
+    {
+      name: "WED2C Assistant",
+      shortName: "WED2C",
+      icon: "WA",
+      color: "#0fe608",
+      hex: "#0fe608",
+      desc: "The WED2C Assistant coordinates an end-to-end automated publishing ecosystem. It ingests supplier URLs, cleanses raw HTML, generates search-optimized editorial copy, renders visual social assets, and distributes catalog data across search, social, and shopping platforms. All trademarks and brand names belong to their respective owners. A collection of useful tools and resources for developers and professionals. Providing efficient solutions for common tasks and challenges within the SattaSpace Ecosystem. All are Tools, Resources, Efficiency, and Designed for Developers and Professionals.",
+      tags: ["Tools", "WED2C", "Resources", "Efficiency", "Developers", "AI"],
+      url: "https://wed2c.sattaspace.com/",
+    },
   ],
 } as const;
 
