@@ -51,8 +51,9 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=3467746230054706&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-
+  <title>{title}</title>
   <meta name="description" content={description} />
+  <meta name="google-adsense-account" content="ca-pub-6547428806314947">
   {site.keywords && <meta name="keywords" content={site.keywords} />}
   <meta name="generator" content={Astro.generator} />
 
@@ -116,7 +117,10 @@ src="https://www.facebook.com/tr?id=3467746230054706&ev=PageView&noscript=1"
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json" set:html={JSON.stringify(seo.jsonLd)} />
 
-  <title>{title}</title>
+  
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6547428806314947"
+     crossorigin="anonymous"></script>
 </head>
 <body class="min-h-screen bg-deep-space text-white overflow-x-hidden">
   <slot />
