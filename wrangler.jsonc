@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "spacelanding",
   "compatibility_date": "2026-04-24",
   "main": "@astrojs/cloudflare/entrypoints/server",
@@ -14,23 +14,28 @@
     "enabled": true
   },
   "kv_namespaces": [
-		{
-		"binding": "SATTASPACE_SESSION_BINDING"
-		}
-	],
+    {
+      "binding": "SATTASPACE_SESSION_BINDING"
+    }
+  ],
   "vars": {
     "PUBLIC_SITE_NAME": "SattaSpace",
-    "PUBLIC_SITE_TAGLINE": "The Space of Being",
+    "PUBLIC_SITE_TAGLINE": "The Space of Being (সত্ত্বা)",
     "PUBLIC_SITE_URL": "https://sattaspace.com",
     "PUBLIC_SITE_DESCRIPTION": "Where entities find their space. SattaSpace is the mother hub — the foundational ecosystem from which innovation, creativity, and ventures emerge.",
-    "PUBLIC_SITE_KEYWORDS": "sattaspace,ecosystem,hub,innovation,ventures,bangladesh,সত্ত্বা",
+    "PUBLIC_SITE_KEYWORDS": "sattaspace,ecosystem,hub,innovation,ventures,bangladesh,সত্ত্বা,entity,technology,startups",
     "PUBLIC_SITE_LOCALE": "en",
     "PUBLIC_THEME_COLOR": "#0A1F44",
     "PUBLIC_CONTACT_EMAIL": "hello@sattaspace.com",
     "PUBLIC_CONTACT_LOCATION": "Dhaka, Bangladesh",
     "PUBLIC_FOUNDING_YEAR": "2024",
-    "PUBLIC_GA_MEASUREMENT_ID": "",
+    "PUBLIC_TWITTER_HANDLE": "@sattaspace",
+    "PUBLIC_LINKEDIN_URL": "https://www.linkedin.com/company/sattaspace",
+    "PUBLIC_GITHUB_URL": "https://github.com/sattaspace",
+    "PUBLIC_GA_MEASUREMENT_ID": "G-08X91B4ZMG",
     "PUBLIC_GTM_ID": "",
+    "PUBLIC_META_PIXEL_ID": "3467746230054706",
+    "PUBLIC_ADSENSE_CLIENT_ID": "ca-pub-6547428806314947",
     "NODE_ENV": "production"
   }
 }

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <section id="ecosystem" class="relative py-24 md:py-32 px-6 overflow-hidden">
     <!-- Background -->
     <div class="absolute inset-0 bg-deep-space"></div>
@@ -21,9 +21,12 @@
 
       <!-- Sub-brand Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <ScrollReveal v-for="(brand, i) in data.brands" :key="i" :delay="i * 80">
-          <a :href=" `${brand.url}` " target="_blank" rel="noopener noreferrer"
-            class="group relative glass rounded-2xl p-6 h-full hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden"
+        <ScrollReveal v-for="(brand, i) in data.brands" :key="i" :delay="i * 40">
+          <a
+            :href="brand.url"
+            :target="brand.url.startsWith('http') ? '_blank' : '_self'"
+            :rel="brand.url.startsWith('http') ? 'noopener noreferrer' : ''"
+            class="group relative glass rounded-2xl p-6 h-full hover:-translate-y-2 transition-all duration-500 cursor-pointer overflow-hidden flex flex-col justify-between"
             @mouseenter="hoveredBrand = i"
             @mouseleave="hoveredBrand = null"
           >
@@ -47,56 +50,79 @@
 
             <div class="relative z-10">
               <!-- Icon + Name -->
-              <div class="flex items-center gap-4 mb-4">
-                <div
-                  class="w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-lg text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
-                  :style="{ background: brand.color, boxShadow: hoveredBrand === i ? `0 0 25px ${brand.color}30` : 'none' }"
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-lg text-white transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg"
+                    :style="{ background: brand.color, boxShadow: hoveredBrand === i ? `0 0 25px ${brand.color}30` : 'none' }"
+                  >
+                    {{ brand.icon }}
+                  </div>
+                  <div>
+                    <h3 class="font-display text-base font-bold text-white group-hover:text-quantum-cyan transition-colors">{{ brand.name }}</h3>
+                    <span class="text-[11px] font-mono text-white/30">{{ brand.hex }}</span>
+                  </div>
+                </div>
+
+                <span
+                  v-if="brand.status === 'live'"
+                  class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-venture/10 text-emerald-venture border border-emerald-venture/20"
                 >
-                  {{ brand.icon }}
-                </div>
-                <div>
-                  <h3 class="font-display text-base font-bold text-white group-hover:transition-colors">{{ brand.name }}</h3>
-                  <span class="text-[11px] font-mono text-white/25">{{ brand.hex }}</span>
-                </div>
+                  Live
+                </span>
+                <span
+                  v-else
+                  class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-glow/10 text-amber-glow border border-amber-glow/20"
+                >
+                  Incubating
+                </span>
               </div>
 
               <!-- Description -->
-              <p class="text-sm text-white/40 leading-relaxed mb-5">{{ brand.desc }}</p>
+              <p class="text-sm text-white/50 leading-relaxed mb-5">{{ brand.desc }}</p>
 
               <!-- Tags -->
-              <div class="flex flex-wrap gap-2">
+              <div class="flex flex-wrap gap-1.5">
                 <span
                   v-for="tag in brand.tags"
                   :key="tag"
-                  class="px-2.5 py-1 text-[10px] tracking-wider uppercase rounded-md border transition-all duration-300"
+                  class="px-2 py-0.5 text-[10px] font-mono tracking-wider uppercase rounded border transition-all duration-300"
                   :style="{
-                    borderColor: hoveredBrand === i ? brand.color + '30' : 'rgba(255,255,255,0.06)',
-                    color: hoveredBrand === i ? brand.color : 'rgba(255,255,255,0.3)',
-                    background: hoveredBrand === i ? brand.color + '08' : 'transparent'
+                    borderColor: hoveredBrand === i ? brand.color + '40' : 'rgba(255,255,255,0.06)',
+                    color: hoveredBrand === i ? brand.color : 'rgba(255,255,255,0.4)',
+                    background: hoveredBrand === i ? brand.color + '10' : 'transparent'
                   }"
                 >
                   {{ tag }}
                 </span>
               </div>
+            </div>
 
-              <!-- Arrow -->
-              <div
-                class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0"
-                :style="{ color: brand.color }"
-              >
-                →
-              </div>
+            <!-- Arrow bottom indicator -->
+            <div class="mt-4 pt-3 border-t border-white/[0.04] flex items-center justify-between text-xs text-white/30 group-hover:text-quantum-cyan transition-colors">
+              <span>{{ brand.status === 'live' ? 'Launch Platform' : 'View Entity Profile' }}</span>
+              <span class="transform group-hover:translate-x-1 transition-transform">→</span>
             </div>
           </a>
         </ScrollReveal>
       </div>
 
-      <!-- Mother Brand Note -->
-      <ScrollReveal :delay="500">
-        <div class="mt-12 text-center">
+      <!-- Mother Brand Note & Directory Link -->
+      <ScrollReveal :delay="300">
+        <div class="mt-16 text-center space-y-6">
           <div class="inline-flex items-center gap-3 glass-light rounded-full px-6 py-3">
             <div class="w-2 h-2 bg-quantum-cyan rounded-full animate-pulse-glow"></div>
-            <span class="text-xs text-white/30 tracking-wider">{{ data.growingNote }}</span>
+            <span class="text-xs text-white/40 tracking-wider">{{ data.growingNote }}</span>
+          </div>
+
+          <div>
+            <a
+              href="/ecosystem"
+              class="inline-flex items-center gap-2 px-8 py-3.5 bg-quantum-cyan/10 hover:bg-quantum-cyan text-quantum-cyan hover:text-deep-space border border-quantum-cyan/30 rounded-xl font-display font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_25px_rgba(0,180,230,0.3)]"
+            >
+              <span>Explore Complete Ecosystem Directory</span>
+              <span>→</span>
+            </a>
           </div>
         </div>
       </ScrollReveal>

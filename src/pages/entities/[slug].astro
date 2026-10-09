@@ -1,0 +1,158 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/vue/Navbar.vue';
+import FooterSection from '../../components/vue/FooterSection.vue';
+import { site, ecosystem } from '../../data/site';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return ecosystem.brands.map((brand) => ({
+    params: { slug: brand.slug },
+    props: { brand },
+  }));
+}
+
+const { brand } = Astro.props;
+
+if (!brand) {
+  return Astro.redirect('/404');
+}
+
+const isLive = brand.status === 'live';
+---
+
+<Layout
+  title={`${brand.name} — ${site.name} Ecosystem`}
+  description={`${brand.name}: ${brand.desc} Part of the SattaSpace (সত্ত্বা) innovation framework in Dhaka, Bangladesh.`}
+>
+  <Navbar client:load />
+
+  <main class="relative pt-32 pb-24 px-6 max-w-4xl mx-auto">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-mono text-white/40 mb-8" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-quantum-cyan transition-colors">Home</a>
+      <span>/</span>
+      <a href="/ecosystem" class="hover:text-quantum-cyan transition-colors">Ecosystem</a>
+      <span>/</span>
+      <span class="text-quantum-cyan">{brand.name}</span>
+    </nav>
+
+    <!-- Entity Hero Header -->
+    <div class="glass rounded-3xl p-8 md:p-12 border border-white/10 mb-10 relative overflow-hidden">
+      <!-- Glow -->
+      <div
+        class="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-3xl opacity-20 pointer-events-none"
+        style={`background: ${brand.hex}`}
+      ></div>
+
+      <div class="flex flex-col sm:flex-row sm:items-center gap-6 mb-8">
+        <div
+          class="w-20 h-20 rounded-2xl flex items-center justify-center font-display font-bold text-2xl text-white shadow-2xl shrink-0"
+          style={`background: ${brand.hex}`}
+        >
+          {brand.icon}
+        </div>
+        <div>
+          <div class="flex flex-wrap items-center gap-3 mb-2">
+            <h1 class="font-display text-3xl md:text-5xl font-extrabold text-white">
+              {brand.name}
+            </h1>
+            {isLive ? (
+              <span class="text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-venture/20 text-emerald-venture border border-emerald-venture/30">
+                ● Live Platform
+              </span>
+            ) : (
+              <span class="text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-amber-glow/20 text-amber-glow border border-amber-glow/30">
+                🌱 In Incubation
+              </span>
+            )}
+          </div>
+          <p class="text-xs font-mono text-white/50">
+            Entity Codename: <span class="text-white">{brand.shortName}</span> • Ecosystem Registry: <span class="text-quantum-cyan">SattaSpace Mother Hub</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Tagline / Overview -->
+      <p class="text-base md:text-lg text-white/80 leading-relaxed mb-8">
+        {brand.desc}
+      </p>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2">
+        {brand.tags.map((tag) => (
+          <span class="text-xs uppercase font-mono px-3 py-1 rounded-full bg-white/[0.04] text-white/60 border border-white/[0.08]">
+            #{tag}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Detailed Profile & Vision -->
+    <div class="space-y-8 text-white/80 leading-relaxed text-sm md:text-base mb-12">
+      <div class="glass rounded-2xl p-8 md:p-10 border border-white/10 space-y-4">
+        <h2 class="font-display text-2xl font-bold text-white">
+          Mandate & Strategic Objectives
+        </h2>
+        <p class="text-white/70 leading-relaxed">
+          {brand.longDesc || brand.desc}
+        </p>
+        <p class="text-white/70 leading-relaxed">
+          Operating under the unified philosophical ethos of <strong class="text-quantum-cyan">সত্ত্বা (Satta / Essence & Entity)</strong>, {brand.name} addresses focused real-world needs with disciplined execution, transparency, and sustainable architecture.
+        </p>
+      </div>
+
+      <!-- Operational Status Card -->
+      <div class="glass rounded-2xl p-8 border border-white/10">
+        <h3 class="font-display text-lg font-bold text-white mb-3">
+          Lifecycle & Roadmap Status
+        </h3>
+        {isLive ? (
+          <div class="space-y-4">
+            <p class="text-sm text-white/70">
+              This entity is actively operational and serving users worldwide. You can access its live application or storefront directly:
+            </p>
+            <a
+              href={brand.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-quantum-cyan text-deep-space font-display font-semibold text-xs tracking-wider uppercase rounded-lg hover:shadow-[0_0_20px_rgba(0,180,230,0.3)] transition-all"
+            >
+              <span>Launch {brand.name} Website</span>
+              <span>↗</span>
+            </a>
+          </div>
+        ) : (
+          <div class="space-y-4">
+            <p class="text-sm text-white/70">
+              {brand.name} is currently in its incubation and architectural planning phase within the SattaSpace Corporation roadmap for 2026–2027. We are preparing strategic pilots, team onboarding, and infrastructure provisioning.
+            </p>
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/05 space-y-2">
+              <p class="text-xs text-white/50">Interested in collaborating or contributing to this initiative?</p>
+              <a
+                href={`mailto:${site.contactEmail}?subject=Collaboration Inquiry for ${brand.name}`}
+                class="inline-flex items-center gap-2 text-xs font-display font-semibold uppercase tracking-wider text-quantum-cyan hover:underline"
+              >
+                <span>Express Interest via Email</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="flex items-center justify-between border-t border-white/10 pt-6">
+      <a href="/ecosystem" class="inline-flex items-center gap-2 text-sm text-quantum-cyan hover:underline">
+        ← Back to Ecosystem Directory
+      </a>
+      <a href="/contact" class="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition-colors">
+        Contact Hub →
+      </a>
+    </div>
+  </main>
+
+  <FooterSection client:visible />
+</Layout>

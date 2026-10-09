@@ -1,0 +1,165 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/vue/Navbar.vue';
+import FooterSection from '../../components/vue/FooterSection.vue';
+import { site, ecosystem } from '../../data/site';
+
+const brands = ecosystem.brands;
+const liveBrands = brands.filter((b) => b.status === 'live');
+const incubationBrands = brands.filter((b) => b.status === 'incubation');
+---
+
+<Layout
+  title={`Ecosystem Directory — All Entities | ${site.name}`}
+  description={`Explore all 19 entities, active ventures, developer utilities, and incubated initiatives within the SattaSpace (সত্ত্বা) ecosystem.`}
+>
+  <Navbar client:load />
+
+  <main class="relative pt-32 pb-24 px-6 max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-quantum-cyan/10 border border-quantum-cyan/20 text-quantum-cyan text-xs tracking-wider uppercase font-display mb-4">
+        The Living Network
+      </div>
+      <h1 class="font-display text-4xl md:text-6xl font-extrabold text-white mb-6">
+        The <span class="font-brand text-gradient-cyan">SattaSpace</span> Ecosystem
+      </h1>
+      <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+        Where entities (সত্ত্বা) find infinite space. Explore live applications, developer tools, specialized commerce, and incubating initiatives.
+      </p>
+    </div>
+
+    <!-- Section 1: Active Live Ventures -->
+    <div class="mb-16">
+      <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+        <div>
+          <h2 class="font-display text-2xl font-bold text-white flex items-center gap-3">
+            <span>Active Digital Ventures & Utilities</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-venture/20 text-emerald-venture border border-emerald-venture/30 font-mono">
+              {liveBrands.length} Live
+            </span>
+          </h2>
+          <p class="text-sm text-white/40 mt-1">Live platforms, developer tools, and specialized consumer properties.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {liveBrands.map((brand) => (
+          <div class="glass rounded-2xl p-6 border border-white/10 flex flex-col justify-between hover:border-quantum-cyan/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-sm text-white shadow-lg"
+                  style={`background: ${brand.hex}`}
+                >
+                  {brand.icon}
+                </div>
+                <span class="text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-venture/10 text-emerald-venture border border-emerald-venture/20">
+                  Live Platform
+                </span>
+              </div>
+
+              <h3 class="font-display text-xl font-bold text-white mb-2 group-hover:text-quantum-cyan transition-colors">
+                {brand.name}
+              </h3>
+              <p class="text-sm text-white/60 leading-relaxed mb-4">
+                {brand.desc}
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                {brand.tags.map((tag) => (
+                  <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/[0.04] text-white/40 border border-white/[0.06]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href={brand.url}
+                target={brand.url.startsWith('http') ? '_blank' : '_self'}
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-lg bg-quantum-cyan/10 hover:bg-quantum-cyan text-quantum-cyan hover:text-deep-space border border-quantum-cyan/30 text-xs font-display font-semibold uppercase tracking-wider transition-all duration-300"
+              >
+                <span>Launch Venture</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Section 2: Incubating Initiatives & Roadmaps -->
+    <div>
+      <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+        <div>
+          <h2 class="font-display text-2xl font-bold text-white flex items-center gap-3">
+            <span>Incubating Entities & Strategic Initiatives</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-amber-glow/20 text-amber-glow border border-amber-glow/30 font-mono">
+              {incubationBrands.length} In Development
+            </span>
+          </h2>
+          <p class="text-sm text-white/40 mt-1">
+            Emerging socio-economic projects, rural advisory, civic platforms, and ERP solutions currently in planning & incubation.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {incubationBrands.map((brand) => (
+          <div class="glass rounded-2xl p-6 border border-white/10 flex flex-col justify-between hover:border-amber-glow/40 hover:-translate-y-1 transition-all duration-300 group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <div
+                  class="w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-sm text-white shadow-lg opacity-80"
+                  style={`background: ${brand.hex}`}
+                >
+                  {brand.icon}
+                </div>
+                <span class="text-[11px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-glow/10 text-amber-glow border border-amber-glow/20">
+                  Incubation Phase
+                </span>
+              </div>
+
+              <h3 class="font-display text-xl font-bold text-white mb-2 group-hover:text-amber-glow transition-colors">
+                {brand.name}
+              </h3>
+              <p class="text-sm text-white/60 leading-relaxed mb-4">
+                {brand.desc}
+              </p>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                {brand.tags.map((tag) => (
+                  <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/[0.04] text-white/40 border border-white/[0.06]">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href={`/entities/${brand.slug}`}
+                class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.08] text-white/70 hover:text-white border border-white/10 text-xs font-display font-semibold uppercase tracking-wider transition-all duration-300"
+              >
+                <span>View Roadmap & Profile</span>
+                <span>→</span>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="mt-16 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-sm text-quantum-cyan hover:underline">
+        ← Return to Homepage
+      </a>
+    </div>
+  </main>
+
+  <FooterSection client:visible />
+</Layout>

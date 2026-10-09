@@ -1,4 +1,4 @@
-// @ts-check
+﻿// @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import vue from '@astrojs/vue';
@@ -8,7 +8,7 @@ import partytown from '@astrojs/partytown';
 import robotsTxt from 'astro-robots-txt';
 import { loadEnv } from 'vite';
 
-// ── Load env vars from .env (PUBLIC_ prefix required for Vite) ──
+// â”€â”€ Load env vars from .env (PUBLIC_ prefix required for Vite) â”€â”€
 const env = loadEnv(process.env.NODE_ENV || 'production', process.cwd(), 'PUBLIC_');
 
 const siteUrl    = env.PUBLIC_SITE_URL        || 'https://sattaspace.com';
@@ -24,7 +24,7 @@ export default defineConfig({
   adapter: cloudflare({
     // This tells Astro to use Sharp at build-time to create optimized assets
     imageService: { build: 'compile', runtime: 'cloudflare-binding' },
-    sessionKVBindingName: 'SATTADOCS_SESSION_BINDING',
+    sessionKVBindingName: 'SATTASPACE_SESSION_BINDING',
     prerenderEnvironment: 'node',
   }),
 

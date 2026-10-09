@@ -1,0 +1,115 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/vue/Navbar.vue';
+import FooterSection from '../components/vue/FooterSection.vue';
+import { site } from '../data/site';
+
+const lastUpdated = "October 2026";
+---
+
+<Layout
+  title={`Brand & Legal Disclaimer — ${site.name}`}
+  description={`Important Brand Disclaimer: SattaSpace is derived from the Bengali word সত্ত্বা (Entity). We have zero affiliation with gambling, betting, or Satta Matka activities.`}
+>
+  <Navbar client:load />
+
+  <main class="relative pt-32 pb-24 px-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warm-entity/10 border border-warm-entity/30 text-warm-entity text-xs tracking-wider uppercase font-display mb-4">
+        Brand Identity & Policy Clarification
+      </div>
+      <h1 class="font-display text-3xl md:text-5xl font-extrabold text-white mb-4">
+        Brand & Legal Disclaimer
+      </h1>
+      <p class="text-sm text-white/40">
+        Effective & Last Updated: <span class="text-quantum-cyan">{lastUpdated}</span>
+      </p>
+    </div>
+
+    <!-- Highlight Box -->
+    <div class="mb-10 p-6 md:p-8 rounded-2xl bg-warm-entity/10 border border-warm-entity/30 text-white space-y-4">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">⚠️</span>
+        <h2 class="font-display text-xl md:text-2xl font-bold text-warm-entity">
+          Crucial Notice: Absolute Non-Affiliation with Gambling or Betting
+        </h2>
+      </div>
+      <p class="text-sm md:text-base leading-relaxed text-white/90">
+        <strong class="text-white">SattaSpace</strong> is named after the native Bengali word <strong class="text-quantum-cyan">"সত্ত্বা"</strong> (transliterated phonetically into English as <em>Satta</em>), which literally translates to <strong class="text-white">Entity, Essence, Being, or Existence</strong>.
+      </p>
+      <p class="text-sm md:text-base leading-relaxed text-white/90 font-medium">
+        <strong class="text-white underline">SattaSpace Corporation has NO affiliation, association, or connection whatsoever</strong> with any gambling, wagering, lotteries, betting schemes, or speculative gaming activities (including, but not limited to, the colloquial South Asian betting games known as <em>Satta Matka</em>, <em>Satta King</em>, <em>Gali Disawar</em>, or any variant thereof).
+      </p>
+    </div>
+
+    <!-- Content Card -->
+    <div class="glass rounded-2xl p-8 md:p-12 space-y-8 text-white/80 leading-relaxed text-sm md:text-base border border-white/10">
+      
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          1. Purpose of SattaSpace
+        </h2>
+        <p>
+          {site.name} (<a href={site.url} class="text-quantum-cyan hover:underline">{site.url}</a>) is exclusively an innovation mother-hub, technology incubator, and venture management ecosystem based in {site.location}.
+        </p>
+        <p>
+          All entities operating under or incubated by {site.name} focus strictly on lawful, professional domains, including:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-white/70">
+          <li>Developer utilities and LLM token telemetry (<a href="https://tokenops.sattaspace.com" class="text-quantum-cyan hover:underline">TokenOps</a>).</li>
+          <li>Precision mechanical horology and watches (<a href="https://mechtime.sattaspace.com" class="text-quantum-cyan hover:underline">Mech Time</a>).</li>
+          <li>Fine stationery instruments and executive carrying solutions.</li>
+          <li>Civic education, rural consultancy (SattaAdhar), and agricultural supply transparency (SattaAgro).</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          2. Zero-Tolerance Policy on Gambling Content
+        </h2>
+        <p>
+          We strictly enforce a zero-tolerance policy against unlawful wagering:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-white/70">
+          <li>We do NOT provide, facilitate, calculate, or display gambling tips, lottery results, or betting odds.</li>
+          <li>We do NOT accept advertisements, sponsorships, or links originating from gambling or betting operators.</li>
+          <li>We fully comply with the Google Publisher Policies regarding Gambling and Restricted Games.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          3. Informational & Digital Utilities Disclaimer
+        </h2>
+        <p>
+          All developer tools, calculators, and informational articles hosted across {site.name} and its subdomains are provided "as-is" for productivity and educational purposes. While we maintain rigorous standards of accuracy, we do not guarantee that third-party API rates or model specifications are devoid of minor synchronization delays.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          4. Legal Contact for Brand Inquiries
+        </h2>
+        <p>
+          If you have any questions regarding our trademark, brand etymology, or regulatory compliance:
+        </p>
+        <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-1">
+          <p><strong class="text-white">Organization:</strong> {site.name} Corporation</p>
+          <p><strong class="text-white">Registered Hub:</strong> {site.location}</p>
+          <p><strong class="text-white">Official Email:</strong> <a href={`mailto:${site.contactEmail}`} class="text-quantum-cyan hover:underline">{site.contactEmail}</a></p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Back to Home -->
+    <div class="mt-8 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-sm text-quantum-cyan hover:underline">
+        ← Return to Homepage
+      </a>
+    </div>
+  </main>
+
+  <FooterSection client:visible />
+</Layout>

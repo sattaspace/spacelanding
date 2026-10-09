@@ -1,0 +1,122 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/vue/Navbar.vue';
+import FooterSection from '../components/vue/FooterSection.vue';
+import { site, stats } from '../data/site';
+---
+
+<Layout
+  title={`About Us — ${site.name} Ecosystem`}
+  description={`Learn about SattaSpace (সত্ত্বা + Space), our philosophy of entity empowerment, venture incubation, and technology in Dhaka, Bangladesh.`}
+>
+  <Navbar client:load />
+
+  <main class="relative pt-32 pb-24 px-6 max-w-5xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-quantum-cyan/10 border border-quantum-cyan/20 text-quantum-cyan text-xs tracking-wider uppercase font-display mb-4">
+        Our Origin & Philosophy
+      </div>
+      <h1 class="font-display text-4xl md:text-6xl font-extrabold text-white mb-6">
+        About <span class="font-brand text-gradient-cyan">SattaSpace</span>
+      </h1>
+      <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+        The Mother Hub — where ideas, entities, and human potential find boundless space to evolve.
+      </p>
+    </div>
+
+    <!-- Linguistic Origin & Meaning of Satta (সত্ত্বা) -->
+    <div class="mb-12 p-8 md:p-10 rounded-2xl glass border border-quantum-cyan/20 bg-gradient-to-r from-cosmic-navy/60 via-deep-space to-cosmic-navy/60">
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="w-20 h-20 rounded-2xl bg-quantum-cyan/10 border border-quantum-cyan/30 flex items-center justify-center text-3xl font-display text-quantum-cyan font-bold shrink-0">
+          সত্ত্বা
+        </div>
+        <div class="space-y-2 text-center md:text-left">
+          <h2 class="font-display text-2xl font-bold text-white">
+            The Meaning of Satta (সত্ত্বা)
+          </h2>
+          <p class="text-white/70 text-sm md:text-base leading-relaxed">
+            In the Bengali language, <strong class="text-quantum-cyan">"সত্ত্বা" (transliterated as Satta)</strong> signifies <em class="text-white">entity, essence, being, or core existence</em>. Combined with <strong class="text-white">Space</strong>, SattaSpace represents an infinite canvas created specifically for individual entities — each with its distinct identity — to flourish in a collaborative, supportive ecosystem.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Story & Narrative -->
+    <div class="space-y-8 text-white/80 leading-relaxed text-sm md:text-base mb-16">
+      <div class="glass rounded-2xl p-8 md:p-12 space-y-6 border border-white/10">
+        <h2 class="font-display text-2xl font-bold text-white">
+          Our Foundation & Mission
+        </h2>
+        <p>
+          Founded in <strong class="text-white">{site.foundingYear}</strong> in <strong class="text-white">{site.location}</strong>, {site.name} is designed not as a single monolithic corporation, but as an open, multifaceted venture and innovation framework.
+        </p>
+        <p>
+          We build, incubate, and support digital utilities, specialized commerce, educational initiatives, and rural development strategies across South Asia. Our initiatives range from independent developer tools like <a href="https://tokenops.sattaspace.com" class="text-quantum-cyan hover:underline">TokenOps</a> and <a href="https://tools.sattaspace.com" class="text-quantum-cyan hover:underline">SattaSpace Tools</a>, to precision horology with <a href="https://mechtime.sattaspace.com" class="text-quantum-cyan hover:underline">Mech Time</a> and civic incubation like SattaAdhar and SattaSchool.
+        </p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {stats.items.map((item) => (
+          <div class="glass rounded-xl p-6 text-center border border-white/10">
+            <div class="font-display text-3xl md:text-4xl font-extrabold text-quantum-cyan mb-1">
+              {item.value}{item.suffix}
+            </div>
+            <div class="text-xs uppercase tracking-wider text-white/50 font-display">
+              {item.label}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- 3 Pillars -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-6 border border-white/10 space-y-3">
+          <div class="text-2xl text-quantum-cyan">⚡</div>
+          <h3 class="font-display text-lg font-bold text-white">1. Developer Utilities</h3>
+          <p class="text-xs md:text-sm text-white/60 leading-relaxed">
+            High-speed tools, token telemetry calculators, and open utilities designed to assist engineers, creators, and technology builders worldwide.
+          </p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 border border-white/10 space-y-3">
+          <div class="text-2xl text-warm-entity">⏱️</div>
+          <h3 class="font-display text-lg font-bold text-white">2. Craft & Lifestyle</h3>
+          <p class="text-xs md:text-sm text-white/60 leading-relaxed">
+            Celebrating horological precision (Mech Time), bespoke calligraphy instruments, and durable professional carryalls designed for lasting quality.
+          </p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 border border-white/10 space-y-3">
+          <div class="text-2xl text-emerald-venture">🌱</div>
+          <h3 class="font-display text-lg font-bold text-white">3. Social Incubation</h3>
+          <p class="text-xs md:text-sm text-white/60 leading-relaxed">
+            Incubating grassroots education, rural community advisory, agricultural bridging, and ethical civic journalism across Bangladesh.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Verified Organization & Location Details (E-E-A-T) -->
+    <div class="glass rounded-2xl p-8 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1 text-center md:text-left">
+        <h3 class="font-display text-xl font-bold text-white">Headquarters & Verification</h3>
+        <p class="text-sm text-white/60">{site.name} Corporation • {site.location}</p>
+        <p class="text-xs text-white/40">Inquiries: <a href={`mailto:${site.contactEmail}`} class="text-quantum-cyan hover:underline">{site.contactEmail}</a></p>
+      </div>
+      <a href="/contact" class="px-6 py-3 bg-quantum-cyan text-deep-space font-display font-semibold text-xs tracking-wider uppercase rounded-lg hover:shadow-[0_0_20px_rgba(0,180,230,0.3)] transition-all">
+        Contact Our Team
+      </a>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="mt-12 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-sm text-quantum-cyan hover:underline">
+        ← Return to Homepage
+      </a>
+    </div>
+  </main>
+
+  <FooterSection client:visible />
+</Layout>

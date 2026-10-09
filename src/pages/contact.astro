@@ -1,0 +1,140 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/vue/Navbar.vue';
+import FooterSection from '../components/vue/FooterSection.vue';
+import { site } from '../data/site';
+---
+
+<Layout
+  title={`Contact Us — ${site.name}`}
+  description={`Get in touch with the SattaSpace team in Dhaka, Bangladesh for ecosystem partnerships, developer inquiries, and entity collaborations.`}
+>
+  <Navbar client:load />
+
+  <main class="relative pt-32 pb-24 px-6 max-w-5xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-quantum-cyan/10 border border-quantum-cyan/20 text-quantum-cyan text-xs tracking-wider uppercase font-display mb-4">
+        Direct Communication
+      </div>
+      <h1 class="font-display text-4xl md:text-6xl font-extrabold text-white mb-6">
+        Contact <span class="font-brand text-gradient-cyan">SattaSpace</span>
+      </h1>
+      <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+        Have questions regarding our ecosystem, developer utilities, or partnerships? We are here to connect.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      <!-- Contact Info Card -->
+      <div class="space-y-6">
+        <div class="glass rounded-2xl p-6 border border-white/10 space-y-3">
+          <div class="text-quantum-cyan text-2xl">📍</div>
+          <h2 class="font-display text-lg font-bold text-white">Headquarters</h2>
+          <p class="text-sm text-white/70">{site.name} Corporation</p>
+          <p class="text-sm text-white/50">{site.location}</p>
+        </div>
+
+        <div class="glass rounded-2xl p-6 border border-white/10 space-y-3">
+          <div class="text-quantum-cyan text-2xl">✉️</div>
+          <h2 class="font-display text-lg font-bold text-white">Email Address</h2>
+          <p class="text-sm text-white/70">General & Partnerships:</p>
+          <a href={`mailto:${site.contactEmail}`} class="text-sm text-quantum-cyan hover:underline font-mono block">
+            {site.contactEmail}
+          </a>
+        </div>
+
+        <div class="glass rounded-2xl p-6 border border-white/10 space-y-3">
+          <div class="text-warm-entity text-2xl">⏱️</div>
+          <h2 class="font-display text-lg font-bold text-white">Response Time</h2>
+          <p class="text-sm text-white/60">
+            Our team typically reviews and replies to all business and technical inquiries within 24–48 business hours.
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Form Card -->
+      <div class="md:col-span-2 glass rounded-2xl p-8 md:p-10 border border-white/10">
+        <h2 class="font-display text-2xl font-bold text-white mb-2">Send an Inquiry</h2>
+        <p class="text-sm text-white/50 mb-6">
+          Fill out the form below or reach us directly via email.
+        </p>
+
+        <form action={`mailto:${site.contactEmail}`} method="GET" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-white/50 font-display mb-2" for="name">
+                Your Name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                placeholder="e.g. Haradhan Sharma"
+                class="w-full px-4 py-3 rounded-lg bg-deep-space/60 border border-white/10 text-white placeholder-white/30 text-sm focus:border-quantum-cyan focus:outline-none transition-colors"
+              />
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-white/50 font-display mb-2" for="email">
+                Your Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="name@example.com"
+                class="w-full px-4 py-3 rounded-lg bg-deep-space/60 border border-white/10 text-white placeholder-white/30 text-sm focus:border-quantum-cyan focus:outline-none transition-colors"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-white/50 font-display mb-2" for="subject">
+              Subject / Entity of Interest
+            </label>
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              required
+              placeholder="e.g. Partnership inquiry regarding TokenOps or SattaAdhar"
+              class="w-full px-4 py-3 rounded-lg bg-deep-space/60 border border-white/10 text-white placeholder-white/30 text-sm focus:border-quantum-cyan focus:outline-none transition-colors"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-white/50 font-display mb-2" for="body">
+              Your Message
+            </label>
+            <textarea
+              id="body"
+              name="body"
+              rows="5"
+              required
+              placeholder="Describe your inquiry, project proposal, or feedback..."
+              class="w-full px-4 py-3 rounded-lg bg-deep-space/60 border border-white/10 text-white placeholder-white/30 text-sm focus:border-quantum-cyan focus:outline-none transition-colors"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-3.5 bg-quantum-cyan text-deep-space font-display font-semibold text-xs tracking-wider uppercase rounded-lg hover:shadow-[0_0_25px_rgba(0,180,230,0.3)] hover:scale-[1.01] transition-all duration-300"
+          >
+            Send Inquiry via Email
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="mt-8 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-sm text-quantum-cyan hover:underline">
+        ← Return to Homepage
+      </a>
+    </div>
+  </main>
+
+  <FooterSection client:visible />
+</Layout>

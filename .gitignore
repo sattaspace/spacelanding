@@ -124,3 +124,5 @@ playwright/.cache/
 # Miscellaneous
 *.tgz
 *.tar.gz
+.vscode
+PROJECT_STRUCTURE.md

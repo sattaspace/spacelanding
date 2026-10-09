@@ -1,0 +1,153 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/vue/Navbar.vue';
+import FooterSection from '../components/vue/FooterSection.vue';
+import { site } from '../data/site';
+
+const lastUpdated = "October 2026";
+---
+
+<Layout
+  title={`Privacy Policy — ${site.name}`}
+  description={`Comprehensive Privacy Policy and Cookie Disclosures for ${site.name} Corporation and its associated ecosystem entities.`}
+>
+  <Navbar client:load />
+
+  <main class="relative pt-32 pb-24 px-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-quantum-cyan/10 border border-quantum-cyan/20 text-quantum-cyan text-xs tracking-wider uppercase font-display mb-4">
+        Legal & Compliance
+      </div>
+      <h1 class="font-display text-3xl md:text-5xl font-extrabold text-white mb-4">
+        Privacy Policy
+      </h1>
+      <p class="text-sm text-white/40">
+        Effective & Last Updated: <span class="text-quantum-cyan">{lastUpdated}</span>
+      </p>
+    </div>
+
+    <!-- Content Card -->
+    <div class="glass rounded-2xl p-8 md:p-12 space-y-8 text-white/80 leading-relaxed text-sm md:text-base border border-white/10">
+      
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          1. Introduction & Scope
+        </h2>
+        <p>
+          Welcome to <strong class="text-white">{site.name}</strong> (accessible at <a href={site.url} class="text-quantum-cyan hover:underline">{site.url}</a>). {site.name} Corporation ("we", "us", or "our") is dedicated to safeguarding the privacy of visitors, partners, and users across our central ecosystem and digital services.
+        </p>
+        <p>
+          This Privacy Policy outlines how we collect, utilize, store, and disclose information gathered through your interaction with our website, client utilities, and digital platforms.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          2. Mandatory Google AdSense & Third-Party Advertising Disclosures
+        </h2>
+        <p>
+          We partner with third-party advertising vendors, including <strong class="text-white">Google LLC</strong>, to serve advertisements across our digital properties and ecosystem utilities. Please note the following regarding Google advertising technologies:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-white/70">
+          <li>
+            <strong class="text-white">Third-Party Cookies:</strong> Third-party vendors, including Google, utilize cookies to serve ads based on a user's prior visits to this website or other websites across the Internet.
+          </li>
+          <li>
+            <strong class="text-white">Google Advertising Cookies:</strong> Google's use of advertising cookies (including the DoubleClick DART cookie) enables Google and its authorized partners to serve tailored ads to users based on their navigation history across {site.name} and other web domains.
+          </li>
+          <li>
+            <strong class="text-white">Personalized Advertising Opt-Out:</strong> Users may opt out of personalized advertising at any time by visiting <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" class="text-quantum-cyan hover:underline font-semibold">Google Ads Settings</a>.
+          </li>
+          <li>
+            <strong class="text-white">Third-Party Vendor Opt-Out:</strong> Alternatively, users may opt out of third-party vendor use of cookies for personalized advertising by visiting the <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" class="text-quantum-cyan hover:underline">Digital Advertising Alliance Consumer Choice tool (aboutads.info)</a> or the <a href="https://www.networkadvertising.org/choices/" target="_blank" rel="noopener noreferrer" class="text-quantum-cyan hover:underline">Network Advertising Initiative (NAI) opt-out page</a>.
+          </li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          3. Analytics & Telemetry (Google Analytics & Meta Pixel)
+        </h2>
+        <p>
+          We employ telemetry services to assess platform responsiveness and visitor traffic patterns:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-white/70">
+          <li>
+            <strong class="text-white">Google Analytics 4:</strong> Helps analyze how visitors navigate and interact with our pages. Google Analytics collects anonymized IP addresses and device parameters. You may install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" class="text-quantum-cyan hover:underline">Google Analytics Opt-out Browser Add-on</a> to disable tracking.
+          </li>
+          <li>
+            <strong class="text-white">Meta Pixel:</strong> Measures campaign conversions and optimizes relevant audience discovery across Meta properties.
+          </li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          4. Information We Collect
+        </h2>
+        <p>
+          We collect information in two ways:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-white/70">
+          <li>
+            <strong class="text-white">Voluntarily Provided Information:</strong> When you contact us via email (<a href={`mailto:${site.contactEmail}`} class="text-quantum-cyan hover:underline">{site.contactEmail}</a>) or reach out regarding ecosystem partnerships, we collect your name, email address, message contents, and relevant inquiry details.
+          </li>
+          <li>
+            <strong class="text-white">Automated Log & Device Data:</strong> Our edge infrastructure (hosted via Cloudflare Workers) automatically records standard server logs, including browser user-agent, operating system, referring URL, time of visit, and anonymized request routing data.
+          </li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          5. GDPR & CCPA Compliance
+        </h2>
+        <p>
+          Regardless of your jurisdiction, {site.name} respects fundamental privacy rights:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-white/70">
+          <li>
+            <strong class="text-white">GDPR (European Economic Area):</strong> You have the right to access, rectify, restrict, or request erasure of personal information held about you.
+          </li>
+          <li>
+            <strong class="text-white">CCPA (California Residents):</strong> You have the right to know what personal categories of data are collected, request deletion, and opt-out of data transfers. We do not sell your personal data.
+          </li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          6. Security & Infrastructure
+        </h2>
+        <p>
+          {site.name} utilizes secure HTTPS encryption across all client-to-server exchanges, backed by global Cloudflare edge network security and DDOS mitigation.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          7. Contact Information
+        </h2>
+        <p>
+          For any questions, clarifications, or privacy requests regarding this Privacy Policy, please reach out directly:
+        </p>
+        <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-1">
+          <p><strong class="text-white">Entity:</strong> {site.name} Corporation</p>
+          <p><strong class="text-white">Address:</strong> {site.location}</p>
+          <p><strong class="text-white">Email:</strong> <a href={`mailto:${site.contactEmail}`} class="text-quantum-cyan hover:underline">{site.contactEmail}</a></p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Back to Home -->
+    <div class="mt-8 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-sm text-quantum-cyan hover:underline">
+        ← Return to Homepage
+      </a>
+    </div>
+  </main>
+
+  <FooterSection client:visible />
+</Layout>

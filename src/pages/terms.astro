@@ -1,0 +1,123 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/vue/Navbar.vue';
+import FooterSection from '../components/vue/FooterSection.vue';
+import { site } from '../data/site';
+
+const lastUpdated = "October 2026";
+---
+
+<Layout
+  title={`Terms of Service — ${site.name}`}
+  description={`Terms of Service governing the use of ${site.name} website, ecosystem subdomains, and digital utilities.`}
+>
+  <Navbar client:load />
+
+  <main class="relative pt-32 pb-24 px-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-quantum-cyan/10 border border-quantum-cyan/20 text-quantum-cyan text-xs tracking-wider uppercase font-display mb-4">
+        Legal Agreement
+      </div>
+      <h1 class="font-display text-3xl md:text-5xl font-extrabold text-white mb-4">
+        Terms of Service
+      </h1>
+      <p class="text-sm text-white/40">
+        Effective & Last Updated: <span class="text-quantum-cyan">{lastUpdated}</span>
+      </p>
+    </div>
+
+    <!-- Content Card -->
+    <div class="glass rounded-2xl p-8 md:p-12 space-y-8 text-white/80 leading-relaxed text-sm md:text-base border border-white/10">
+      
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          1. Agreement to Terms
+        </h2>
+        <p>
+          By accessing or browsing <strong class="text-white">{site.name}</strong> (<a href={site.url} class="text-quantum-cyan hover:underline">{site.url}</a>) and any associated web properties, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our platforms.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          2. Intellectual Property Rights
+        </h2>
+        <p>
+          Unless otherwise stated, {site.name} Corporation and its licensors own all intellectual property rights for the website design, logos, brand assets, written content, code repositories, and proprietary graphics. All rights are reserved.
+        </p>
+        <p>
+          You may view, browse, and access pages for your personal, non-commercial use, subject to restrictions outlined in these terms. You must not:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-white/70">
+          <li>Republish, sell, rent, or sub-license material from {site.name} without written consent.</li>
+          <li>Reproduce, duplicate, or copy source code, styling, or trademarks.</li>
+          <li>Redistribute content from {site.name} unless content is specifically made for redistribution.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          3. Permitted & Acceptable Use
+        </h2>
+        <p>
+          You agree to use our digital properties only for lawful purposes. You must not use our website in any manner that causes, or may cause, damage to the website or impairment of the availability or accessibility of our services.
+        </p>
+        <p>
+          Automated scraping, excessive polling, denial of service attempts, or unlawful reverse-engineering of ecosystem API endpoints is strictly prohibited.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          4. Ecosystem Entities & Subdomain Links
+        </h2>
+        <p>
+          {site.name} serves as a central hub for multiple initiatives, tools, and brand entities (such as TokenOps, Mech Time, and SattaSpace Tools). Certain links connect to specialized subdomains or external services. While we curate every entity under our umbrella, separate terms or merchant guidelines may apply to specific commerce transactions conducted on dedicated storefronts.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          5. Limitation of Liability
+        </h2>
+        <p>
+          To the maximum extent permitted by applicable law, {site.name} Corporation and its contributors shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your access to or inability to access the service.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          6. Governing Law & Jurisdiction
+        </h2>
+        <p>
+          These Terms of Service are governed by and construed in accordance with the laws of Bangladesh. Any dispute arising in connection with these terms shall be subject to the exclusive jurisdiction of the courts located in Dhaka, Bangladesh.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="font-display text-xl md:text-2xl font-bold text-white text-gradient-cyan">
+          7. Questions & Contact
+        </h2>
+        <p>
+          If you have questions regarding our Terms of Service, contact our team:
+        </p>
+        <div class="p-4 rounded-xl bg-white/[0.03] border border-white/10 space-y-1">
+          <p><strong class="text-white">Entity:</strong> {site.name} Corporation</p>
+          <p><strong class="text-white">Location:</strong> {site.location}</p>
+          <p><strong class="text-white">Email:</strong> <a href={`mailto:${site.contactEmail}`} class="text-quantum-cyan hover:underline">{site.contactEmail}</a></p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Back to Home -->
+    <div class="mt-8 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-sm text-quantum-cyan hover:underline">
+        ← Return to Homepage
+      </a>
+    </div>
+  </main>
+
+  <FooterSection client:visible />
+</Layout>
